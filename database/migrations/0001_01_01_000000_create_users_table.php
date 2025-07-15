@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('language')->default('en');
             $table->string('image')->nullable();
             $table->enum('gender',GenderType::getValues());
-            $table->enum('role',UserType::getValues());
+            $table->tinyInteger('role');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

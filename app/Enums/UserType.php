@@ -10,6 +10,15 @@ enum UserType:int
     case ADMIN = 2;
 
     public static function getValues():array{
-        return array_map(fn($c)=>$c->value , self::cases());
+        return array_map(fn($c)=> $c->value , self::cases());
+    }
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::USER => 'User',
+            self::INSTRUCTOR => 'Instructor',
+            self::ADMIN => 'Admin',
+        };
     }
 }

@@ -7,10 +7,17 @@ use App\DTOs\Auth\LoginDTO;
 use App\DTOs\Auth\RegisterDTO;
 
 class AuthRepository implements AuthRepositoryInterface {
-    public function login(LoginDTO $login){
-        
+    public function login(array $data){
+        $credentials = [
+            "email" => $data['email'] ,
+            "password"=> $data['password']
+        ];
+        if(!$token = auth()->attempt($credentials)){
+            return null;
+        }
+        return $token;
     }
-    public function register(RegisterDTO $register){
+    public function register(array $data){
 
     }
     public function refresh(){

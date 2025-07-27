@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 
-
-Route::prefix('v1')->controller(AuthController::class)->middleware('jwt.auth')->group(function(){
+//->middleware('jwt.auth')
+Route::prefix('v1')->controller(AuthController::class)->group(function(){
     Route::post('login','login');
     Route::post('register','register');
     Route::post('refresh','refresh');

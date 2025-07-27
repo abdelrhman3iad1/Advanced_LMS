@@ -19,10 +19,10 @@ class UserSeeder extends Seeder
         foreach($user_types as $user){
             $created_user = User::create([
                 'first_name'=>$user->label(),
-                'last_name'=>$user->label(),
+                'last_name'=>"1",
                 'gender'=> GenderType::MALE,
                 'role'=> $user->value ,
-                'email'=>$user->label().'@gmail.com',
+                'email'=>strtolower($user->label()).'@gmail.com',
                 'password'=> bcrypt('12345678'),
             ]);
 
